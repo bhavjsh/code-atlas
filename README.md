@@ -1,6 +1,6 @@
 # Code Atlas: MCP Server for Codebase Analysis
 
-Code Atlas is a Model Context Protocol (MCP) server that gives any MCP-compatible editor or agent a structured set of tools to read, search, and understand a codebase. Connect it once and your assistant can map entry points, trace imports, detect the stack, grep across the repo, and surface TODOs — without you having to do any of it manually.
+Code Atlas is a Model Context Protocol (MCP) server that gives any MCP-compatible editor or agent a structured set of tools to read, search, and understand a codebase. Connect it once and your assistant can map entry points, trace imports, detect the stack, grep across the repo, and surface TODOs without you having to do any of it manually.
 
 Built for developers who want their AI assistant to actually understand the project, not just guess at it.
 
@@ -8,7 +8,7 @@ Built for developers who want their AI assistant to actually understand the proj
 
 - **Find Entry Points:** Scans the workspace and returns all entry point files such as `index.ts`, `main.py`, and `Dockerfile`
 - **List Dependencies:** Traces all local imports inside a given file
-- **Summarize Folder:** Identifies the architectural role of a folder — API layer, models, utilities, tests, and more
+- **Summarize Folder:** Identifies the architectural role of a folder (API layer, models, utilities, tests, and more)
 - **Read File:** Reads any file in the workspace safely, sandboxed to the project root
 - **Get File Tree:** Returns the full directory structure as a readable tree, filtered by `.gitignore`
 - **Detect Stack:** Reads `package.json`, `Dockerfile`, `requirements.txt`, `go.mod`, and similar files to identify the tech stack
