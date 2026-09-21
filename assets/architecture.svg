@@ -1,0 +1,114 @@
+<svg width="860" height="540" viewBox="0 0 860 540" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+
+  <!-- Background -->
+  <rect width="860" height="540" fill="#0d1117" rx="12"/>
+
+  <!-- Title -->
+  <text x="430" y="44" text-anchor="middle" fill="#e6edf3" font-size="18" font-weight="700" letter-spacing="0.5">Code Atlas — Architecture</text>
+
+  <!-- ── MCP CLIENT ── -->
+  <rect x="60" y="80" width="180" height="64" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="150" y="107" text-anchor="middle" fill="#79c0ff" font-size="13" font-weight="600">MCP Client</text>
+  <text x="150" y="127" text-anchor="middle" fill="#8b949e" font-size="11">Cursor / VS Code / Agent</text>
+
+  <!-- Arrow: Client -> Server -->
+  <line x1="241" y1="112" x2="299" y2="112" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="270" y="104" text-anchor="middle" fill="#8b949e" font-size="10">stdio</text>
+
+  <!-- ── CODE ATLAS SERVER ── -->
+  <rect x="300" y="66" width="260" height="92" rx="10" fill="#161b22" stroke="#388bfd" stroke-width="1.5"/>
+  <text x="430" y="96" text-anchor="middle" fill="#388bfd" font-size="13" font-weight="700">Code Atlas Server</text>
+  <text x="430" y="116" text-anchor="middle" fill="#8b949e" font-size="11">@modelcontextprotocol/sdk</text>
+  <text x="430" y="134" text-anchor="middle" fill="#8b949e" font-size="11">MCP stdio transport · Zod validation</text>
+
+  <!-- Arrow: Server -> Tools -->
+  <line x1="430" y1="158" x2="430" y2="196" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── TOOLS LAYER ── -->
+  <rect x="60" y="196" width="740" height="52" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="430" y="218" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Tools Layer</text>
+
+  <!-- Tool chips -->
+  <rect x="76"  y="228" width="108" height="12" rx="4" fill="#21262d"/>
+  <text x="130" y="238" text-anchor="middle" fill="#8b949e" font-size="9">find_entry_points</text>
+
+  <rect x="192" y="228" width="108" height="12" rx="4" fill="#21262d"/>
+  <text x="246" y="238" text-anchor="middle" fill="#8b949e" font-size="9">list_dependencies</text>
+
+  <rect x="308" y="228" width="108" height="12" rx="4" fill="#21262d"/>
+  <text x="362" y="238" text-anchor="middle" fill="#8b949e" font-size="9">summarize_folder</text>
+
+  <rect x="424" y="228" width="76" height="12" rx="4" fill="#21262d"/>
+  <text x="462" y="238" text-anchor="middle" fill="#8b949e" font-size="9">read_file</text>
+
+  <rect x="508" y="228" width="84" height="12" rx="4" fill="#21262d"/>
+  <text x="550" y="238" text-anchor="middle" fill="#8b949e" font-size="9">get_file_tree</text>
+
+  <rect x="600" y="228" width="84" height="12" rx="4" fill="#21262d"/>
+  <text x="642" y="238" text-anchor="middle" fill="#8b949e" font-size="9">detect_stack</text>
+
+  <rect x="692" y="228" width="84" height="12" rx="4" fill="#21262d"/>
+  <text x="734" y="238" text-anchor="middle" fill="#8b949e" font-size="9">search_code</text>
+
+  <!-- Arrow: Tools -> Utils -->
+  <line x1="240" y1="248" x2="240" y2="290" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Arrow: Tools -> Filesystem -->
+  <line x1="620" y1="248" x2="620" y2="290" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── UTILITIES ── -->
+  <rect x="60" y="290" width="360" height="80" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="240" y="314" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Utilities</text>
+
+  <!-- sandbox box -->
+  <rect x="80" y="324" width="148" height="36" rx="7" fill="#21262d" stroke="#f85149" stroke-width="1"/>
+  <text x="154" y="339" text-anchor="middle" fill="#f85149" font-size="11" font-weight="600">sandbox.ts</text>
+  <text x="154" y="354" text-anchor="middle" fill="#8b949e" font-size="9">blocks paths outside workspace</text>
+
+  <!-- gitignore box -->
+  <rect x="244" y="324" width="160" height="36" rx="7" fill="#21262d" stroke="#3fb950" stroke-width="1"/>
+  <text x="324" y="339" text-anchor="middle" fill="#3fb950" font-size="11" font-weight="600">gitignore.ts</text>
+  <text x="324" y="354" text-anchor="middle" fill="#8b949e" font-size="9">loads and applies ignore patterns</text>
+
+  <!-- ── FILESYSTEM ── -->
+  <rect x="440" y="290" width="360" height="80" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="620" y="314" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Filesystem (Workspace Root)</text>
+
+  <rect x="460" y="324" width="90" height="36" rx="7" fill="#21262d"/>
+  <text x="505" y="339" text-anchor="middle" fill="#8b949e" font-size="10">Source Files</text>
+  <text x="505" y="354" text-anchor="middle" fill="#6e7681" font-size="9">.ts .py .js ...</text>
+
+  <rect x="564" y="324" width="90" height="36" rx="7" fill="#21262d"/>
+  <text x="609" y="339" text-anchor="middle" fill="#8b949e" font-size="10">Config Files</text>
+  <text x="609" y="354" text-anchor="middle" fill="#6e7681" font-size="9">package.json go.mod ...</text>
+
+  <rect x="668" y="324" width="112" height="36" rx="7" fill="#21262d"/>
+  <text x="724" y="339" text-anchor="middle" fill="#8b949e" font-size="10">Directory Tree</text>
+  <text x="724" y="354" text-anchor="middle" fill="#6e7681" font-size="9">filtered by .gitignore</text>
+
+  <!-- Arrow: Utils + FS -> Output -->
+  <line x1="240" y1="370" x2="240" y2="420" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="620" y1="370" x2="620" y2="420" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="240" y1="444" x2="619" y2="444" stroke="#30363d" stroke-width="1.5"/>
+  <line x1="430" y1="444" x2="430" y2="420" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── OUTPUT ── -->
+  <rect x="300" y="420" width="260" height="56" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="430" y="447" text-anchor="middle" fill="#3fb950" font-size="13" font-weight="600">Structured Output</text>
+  <text x="430" y="466" text-anchor="middle" fill="#8b949e" font-size="11">JSON-RPC response over stdio</text>
+
+  <!-- Arrow: Output -> Client -->
+  <line x1="300" y1="448" x2="242" y2="448" stroke="#30363d" stroke-width="1.5"/>
+  <line x1="241" y1="448" x2="241" y2="144" stroke="#30363d" stroke-width="1.5"/>
+  <line x1="241" y1="144" x2="241" y2="144" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Arrowhead marker -->
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#30363d"/>
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="430" y="524" text-anchor="middle" fill="#6e7681" font-size="10">github.com/bhavjsh/code-atlas</text>
+
+</svg>

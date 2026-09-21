@@ -4,6 +4,8 @@ Code Atlas is a Model Context Protocol (MCP) server that gives any MCP-compatibl
 
 Built for developers who want their AI assistant to actually understand the project, not just guess at it.
 
+![Architecture](assets/architecture.svg)
+
 ## What It Can Do
 
 - **Find Entry Points:** Scans the workspace and returns all entry point files such as `index.ts`, `main.py`, and `Dockerfile`
