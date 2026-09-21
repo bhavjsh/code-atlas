@@ -10,14 +10,14 @@ Built for developers who want their AI assistant to actually understand the proj
 
 ## What It Can Do
 
-- **Find Entry Points** — scans the workspace for `index.ts`, `main.py`, `Dockerfile`, and similar files
-- **List Dependencies** — traces all local imports inside a given file
-- **Summarize Folder** — identifies the role of a folder (API layer, models, utilities, tests, etc.)
-- **Read File** — reads any file in the workspace, sandboxed to the project root
-- **Get File Tree** — returns the full directory structure, filtered by `.gitignore`
-- **Detect Stack** — reads `package.json`, `Dockerfile`, `requirements.txt`, `go.mod`, etc. to identify the tech stack
-- **Search Code** — searches all files for a keyword or regex, returns matches with file path and line number
-- **Find TODOs** — collects every `TODO`, `FIXME`, `HACK`, and `NOTE` comment, grouped by file
+- **Find Entry Points:** scans the workspace for `index.ts`, `main.py`, `Dockerfile`, and similar files
+- **List Dependencies:** traces all local imports inside a given file
+- **Summarize Folder:** identifies the role of a folder (API layer, models, utilities, tests, etc.)
+- **Read File:** reads any file in the workspace, sandboxed to the project root
+- **Get File Tree:** returns the full directory structure, filtered by `.gitignore`
+- **Detect Stack:** reads `package.json`, `Dockerfile`, `requirements.txt`, `go.mod`, etc. to identify the tech stack
+- **Search Code:** searches all files for a keyword or regex, returns matches with file path and line number
+- **Find TODOs:** collects every `TODO`, `FIXME`, `HACK`, and `NOTE` comment, grouped by file
 
 ---
 
@@ -54,7 +54,7 @@ Go to **Cursor Settings > MCP** and add this. Set `cwd` to the root of the proje
 
 Restart Cursor. The tools are now active in your agent panel.
 
-**2. Just ask questions — the assistant does the rest**
+**2. Just ask questions, the assistant does the rest**
 
 | What you ask | What it does |
 |---|---|
