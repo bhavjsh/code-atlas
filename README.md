@@ -62,22 +62,60 @@ For development without a build step:
 npm run dev
 ```
 
-## Connecting to an MCP Client
+## Using Code Atlas on Any Project
 
-Add this to your MCP client configuration file, replacing the path with the actual location on your machine:
+Code Atlas runs against whatever directory you point it at. You can use it on any codebase, not just this one.
+
+### Step 1 — Clone and build Code Atlas once
+
+```bash
+git clone https://github.com/bhavjsh/code-atlas.git
+cd code-atlas
+npm install
+npm run build
+```
+
+### Step 2 — Open your target project in Cursor (or any MCP client)
+
+Navigate to the project you want to analyse, for example:
+
+```bash
+cd /path/to/your/other-project
+```
+
+### Step 3 — Add Code Atlas to your MCP client config
+
+In Cursor, open **Settings > MCP** and add the following, replacing the path with where you cloned Code Atlas:
 
 ```json
 {
   "mcpServers": {
     "code-atlas": {
       "command": "node",
-      "args": ["/absolute/path/to/code-atlas/dist/index.js"]
+      "args": ["/absolute/path/to/code-atlas/dist/index.js"],
+      "cwd": "/path/to/your/other-project"
     }
   }
 }
 ```
 
-Restart your client. All 8 tools will be available immediately. Compatible with any host that supports the MCP stdio transport including Cursor and VS Code MCP extensions.
+The `cwd` field tells Code Atlas which project to treat as the workspace root. All tools will read from and scan that directory.
+
+Restart Cursor. All 8 tools will appear in your agent panel automatically.
+
+### Step 4 — Start asking questions
+
+Once connected, your AI assistant can use Code Atlas tools on its own. Some useful starting points:
+
+- **"Show me the file tree"** — runs `get_file_tree`, gives you a full map of the project
+- **"What stack is this project using?"** — runs `detect_stack`, reads config files and returns the technologies
+- **"Where is authentication handled?"** — runs `search_code` with a keyword like `auth` and returns every matching file and line
+- **"What are all the entry points?"** — runs `find_entry_points`, surfaces `main.py`, `index.ts`, `Dockerfile`, etc.
+- **"What is left to fix in this codebase?"** — runs `find_todos`, collects every TODO and FIXME across the repo
+- **"What does this file import?"** — runs `list_dependencies` on any file and traces its local imports
+- **"What is the role of the src/api folder?"** — runs `summarize_folder` and labels it by architectural role
+
+You do not need to paste any code manually. The agent reads the project itself.
 
 ## Project Structure
 
