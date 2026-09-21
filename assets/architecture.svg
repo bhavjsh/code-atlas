@@ -1,114 +1,94 @@
-<svg width="860" height="540" viewBox="0 0 860 540" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+<svg width="820" height="400" viewBox="0 0 820 400" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
 
   <!-- Background -->
-  <rect width="860" height="540" fill="#0d1117" rx="12"/>
+  <rect width="820" height="400" fill="#0d1117"/>
 
-  <!-- Title -->
-  <text x="430" y="44" text-anchor="middle" fill="#e6edf3" font-size="18" font-weight="700" letter-spacing="0.5">Code Atlas — Architecture</text>
+  <!-- ── ROW 1: Main flow ── -->
 
-  <!-- ── MCP CLIENT ── -->
-  <rect x="60" y="80" width="180" height="64" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
-  <text x="150" y="107" text-anchor="middle" fill="#79c0ff" font-size="13" font-weight="600">MCP Client</text>
-  <text x="150" y="127" text-anchor="middle" fill="#8b949e" font-size="11">Cursor / VS Code / Agent</text>
+  <!-- Editor / Agent -->
+  <rect x="30" y="40" width="160" height="64" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="110" y="68" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">Editor / Agent</text>
+  <text x="110" y="88" text-anchor="middle" fill="#8b949e" font-size="11">Cursor, VS Code, etc.</text>
 
-  <!-- Arrow: Client -> Server -->
-  <line x1="241" y1="112" x2="299" y2="112" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
-  <text x="270" y="104" text-anchor="middle" fill="#8b949e" font-size="10">stdio</text>
+  <!-- Arrow right -->
+  <line x1="191" y1="72" x2="258" y2="72" stroke="#30363d" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="224" y="65" text-anchor="middle" fill="#6e7681" font-size="10">stdio</text>
 
-  <!-- ── CODE ATLAS SERVER ── -->
-  <rect x="300" y="66" width="260" height="92" rx="10" fill="#161b22" stroke="#388bfd" stroke-width="1.5"/>
-  <text x="430" y="96" text-anchor="middle" fill="#388bfd" font-size="13" font-weight="700">Code Atlas Server</text>
-  <text x="430" y="116" text-anchor="middle" fill="#8b949e" font-size="11">@modelcontextprotocol/sdk</text>
-  <text x="430" y="134" text-anchor="middle" fill="#8b949e" font-size="11">MCP stdio transport · Zod validation</text>
+  <!-- Code Atlas Server (highlighted) -->
+  <rect x="260" y="28" width="300" height="88" rx="8" fill="#161b22" stroke="#1f6feb" stroke-width="2"/>
+  <text x="410" y="60" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="700">Code Atlas Server</text>
+  <text x="410" y="80" text-anchor="middle" fill="#8b949e" font-size="11">@modelcontextprotocol/sdk</text>
+  <text x="410" y="98" text-anchor="middle" fill="#6e7681" font-size="10">stdio transport · Zod input validation</text>
 
-  <!-- Arrow: Server -> Tools -->
-  <line x1="430" y1="158" x2="430" y2="196" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Arrow right -->
+  <line x1="561" y1="72" x2="628" y2="72" stroke="#30363d" stroke-width="1.5" marker-end="url(#a)"/>
+  <text x="594" y="65" text-anchor="middle" fill="#6e7681" font-size="10">reads</text>
 
-  <!-- ── TOOLS LAYER ── -->
-  <rect x="60" y="196" width="740" height="52" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
-  <text x="430" y="218" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Tools Layer</text>
+  <!-- Your Repository -->
+  <rect x="630" y="40" width="160" height="64" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="710" y="68" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">Your Repository</text>
+  <text x="710" y="88" text-anchor="middle" fill="#8b949e" font-size="11">any local codebase</text>
 
-  <!-- Tool chips -->
-  <rect x="76"  y="228" width="108" height="12" rx="4" fill="#21262d"/>
-  <text x="130" y="238" text-anchor="middle" fill="#8b949e" font-size="9">find_entry_points</text>
+  <!-- Arrow down from server to tools -->
+  <line x1="410" y1="116" x2="410" y2="148" stroke="#30363d" stroke-width="1.5" marker-end="url(#a)"/>
 
-  <rect x="192" y="228" width="108" height="12" rx="4" fill="#21262d"/>
-  <text x="246" y="238" text-anchor="middle" fill="#8b949e" font-size="9">list_dependencies</text>
+  <!-- ── ROW 2: Tools ── -->
+  <text x="410" y="144" text-anchor="middle" fill="#6e7681" font-size="10">dispatches to</text>
 
-  <rect x="308" y="228" width="108" height="12" rx="4" fill="#21262d"/>
-  <text x="362" y="238" text-anchor="middle" fill="#8b949e" font-size="9">summarize_folder</text>
+  <!-- Tool pills row 1 -->
+  <rect x="30"  y="158" width="178" height="30" rx="6" fill="#21262d"/>
+  <text x="119" y="178" text-anchor="middle" fill="#8b949e" font-size="11">find_entry_points</text>
 
-  <rect x="424" y="228" width="76" height="12" rx="4" fill="#21262d"/>
-  <text x="462" y="238" text-anchor="middle" fill="#8b949e" font-size="9">read_file</text>
+  <rect x="216" y="158" width="178" height="30" rx="6" fill="#21262d"/>
+  <text x="305" y="178" text-anchor="middle" fill="#8b949e" font-size="11">list_dependencies</text>
 
-  <rect x="508" y="228" width="84" height="12" rx="4" fill="#21262d"/>
-  <text x="550" y="238" text-anchor="middle" fill="#8b949e" font-size="9">get_file_tree</text>
+  <rect x="402" y="158" width="178" height="30" rx="6" fill="#21262d"/>
+  <text x="491" y="178" text-anchor="middle" fill="#8b949e" font-size="11">summarize_folder</text>
 
-  <rect x="600" y="228" width="84" height="12" rx="4" fill="#21262d"/>
-  <text x="642" y="238" text-anchor="middle" fill="#8b949e" font-size="9">detect_stack</text>
+  <rect x="588" y="158" width="178" height="30" rx="6" fill="#21262d"/>
+  <text x="677" y="178" text-anchor="middle" fill="#8b949e" font-size="11">read_file</text>
 
-  <rect x="692" y="228" width="84" height="12" rx="4" fill="#21262d"/>
-  <text x="734" y="238" text-anchor="middle" fill="#8b949e" font-size="9">search_code</text>
+  <!-- Tool pills row 2 -->
+  <rect x="30"  y="196" width="178" height="30" rx="6" fill="#21262d"/>
+  <text x="119" y="216" text-anchor="middle" fill="#8b949e" font-size="11">get_file_tree</text>
 
-  <!-- Arrow: Tools -> Utils -->
-  <line x1="240" y1="248" x2="240" y2="290" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
-  <!-- Arrow: Tools -> Filesystem -->
-  <line x1="620" y1="248" x2="620" y2="290" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="216" y="196" width="178" height="30" rx="6" fill="#21262d"/>
+  <text x="305" y="216" text-anchor="middle" fill="#8b949e" font-size="11">detect_stack</text>
 
-  <!-- ── UTILITIES ── -->
-  <rect x="60" y="290" width="360" height="80" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
-  <text x="240" y="314" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Utilities</text>
+  <rect x="402" y="196" width="178" height="30" rx="6" fill="#21262d"/>
+  <text x="491" y="216" text-anchor="middle" fill="#8b949e" font-size="11">search_code</text>
 
-  <!-- sandbox box -->
-  <rect x="80" y="324" width="148" height="36" rx="7" fill="#21262d" stroke="#f85149" stroke-width="1"/>
-  <text x="154" y="339" text-anchor="middle" fill="#f85149" font-size="11" font-weight="600">sandbox.ts</text>
-  <text x="154" y="354" text-anchor="middle" fill="#8b949e" font-size="9">blocks paths outside workspace</text>
+  <rect x="588" y="196" width="178" height="30" rx="6" fill="#21262d"/>
+  <text x="677" y="216" text-anchor="middle" fill="#8b949e" font-size="11">find_todos</text>
 
-  <!-- gitignore box -->
-  <rect x="244" y="324" width="160" height="36" rx="7" fill="#21262d" stroke="#3fb950" stroke-width="1"/>
-  <text x="324" y="339" text-anchor="middle" fill="#3fb950" font-size="11" font-weight="600">gitignore.ts</text>
-  <text x="324" y="354" text-anchor="middle" fill="#8b949e" font-size="9">loads and applies ignore patterns</text>
+  <!-- Arrow down to security layer -->
+  <line x1="410" y1="226" x2="410" y2="262" stroke="#30363d" stroke-width="1.5" marker-end="url(#a)"/>
 
-  <!-- ── FILESYSTEM ── -->
-  <rect x="440" y="290" width="360" height="80" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
-  <text x="620" y="314" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Filesystem (Workspace Root)</text>
+  <!-- ── ROW 3: Security / Utils ── -->
 
-  <rect x="460" y="324" width="90" height="36" rx="7" fill="#21262d"/>
-  <text x="505" y="339" text-anchor="middle" fill="#8b949e" font-size="10">Source Files</text>
-  <text x="505" y="354" text-anchor="middle" fill="#6e7681" font-size="9">.ts .py .js ...</text>
+  <!-- sandbox -->
+  <rect x="30" y="270" width="230" height="64" rx="8" fill="#161b22" stroke="#da3633" stroke-width="1.5"/>
+  <text x="145" y="296" text-anchor="middle" fill="#f85149" font-size="12" font-weight="600">sandbox.ts</text>
+  <text x="145" y="314" text-anchor="middle" fill="#8b949e" font-size="10">blocks any path outside</text>
+  <text x="145" y="328" text-anchor="middle" fill="#8b949e" font-size="10">the workspace root</text>
 
-  <rect x="564" y="324" width="90" height="36" rx="7" fill="#21262d"/>
-  <text x="609" y="339" text-anchor="middle" fill="#8b949e" font-size="10">Config Files</text>
-  <text x="609" y="354" text-anchor="middle" fill="#6e7681" font-size="9">package.json go.mod ...</text>
+  <!-- gitignore -->
+  <rect x="278" y="270" width="230" height="64" rx="8" fill="#161b22" stroke="#238636" stroke-width="1.5"/>
+  <text x="393" y="296" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="600">gitignore.ts</text>
+  <text x="393" y="314" text-anchor="middle" fill="#8b949e" font-size="10">loads .gitignore patterns</text>
+  <text x="393" y="328" text-anchor="middle" fill="#8b949e" font-size="10">and filters file walks</text>
 
-  <rect x="668" y="324" width="112" height="36" rx="7" fill="#21262d"/>
-  <text x="724" y="339" text-anchor="middle" fill="#8b949e" font-size="10">Directory Tree</text>
-  <text x="724" y="354" text-anchor="middle" fill="#6e7681" font-size="9">filtered by .gitignore</text>
+  <!-- structured response -->
+  <rect x="526" y="270" width="264" height="64" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="658" y="296" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Structured Response</text>
+  <text x="658" y="314" text-anchor="middle" fill="#8b949e" font-size="10">JSON-RPC result returned</text>
+  <text x="658" y="328" text-anchor="middle" fill="#8b949e" font-size="10">to the client over stdio</text>
 
-  <!-- Arrow: Utils + FS -> Output -->
-  <line x1="240" y1="370" x2="240" y2="420" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="620" y1="370" x2="620" y2="420" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
-  <line x1="240" y1="444" x2="619" y2="444" stroke="#30363d" stroke-width="1.5"/>
-  <line x1="430" y1="444" x2="430" y2="420" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- ── OUTPUT ── -->
-  <rect x="300" y="420" width="260" height="56" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
-  <text x="430" y="447" text-anchor="middle" fill="#3fb950" font-size="13" font-weight="600">Structured Output</text>
-  <text x="430" y="466" text-anchor="middle" fill="#8b949e" font-size="11">JSON-RPC response over stdio</text>
-
-  <!-- Arrow: Output -> Client -->
-  <line x1="300" y1="448" x2="242" y2="448" stroke="#30363d" stroke-width="1.5"/>
-  <line x1="241" y1="448" x2="241" y2="144" stroke="#30363d" stroke-width="1.5"/>
-  <line x1="241" y1="144" x2="241" y2="144" stroke="#30363d" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- Arrowhead marker -->
+  <!-- Arrowhead -->
   <defs>
-    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#30363d"/>
+    <marker id="a" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#30363d"/>
     </marker>
   </defs>
-
-  <!-- Footer -->
-  <text x="430" y="524" text-anchor="middle" fill="#6e7681" font-size="10">github.com/bhavjsh/code-atlas</text>
 
 </svg>
