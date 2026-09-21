@@ -1,91 +1,68 @@
-# Code Atlas
+# Code Atlas: MCP Server for Codebase Analysis
 
-Code Atlas is an MCP (Model Context Protocol) server that helps you and your AI assistant understand any codebase quickly. Instead of manually digging through files, you get a set of structured tools that can map entry points, trace imports, detect the tech stack, and search across the whole repo, directly from within your editor or agent.
+Code Atlas is a Model Context Protocol (MCP) server that gives any MCP-compatible editor or agent a structured set of tools to read, search, and understand a codebase. Connect it once and your assistant can map entry points, trace imports, detect the stack, grep across the repo, and surface TODOs — without you having to do any of it manually.
 
-It is useful when you are:
+Built for developers who want their AI assistant to actually understand the project, not just guess at it.
 
-- Jumping into an unfamiliar repository
-- Onboarding to a new project
-- Letting an AI assistant navigate your codebase accurately
-- Auditing code for TODOs, patterns, or structure
+## What It Can Do
 
----
+- **Find Entry Points:** Scans the workspace and returns all entry point files such as `index.ts`, `main.py`, and `Dockerfile`
+- **List Dependencies:** Traces all local imports inside a given file
+- **Summarize Folder:** Identifies the architectural role of a folder — API layer, models, utilities, tests, and more
+- **Read File:** Reads any file in the workspace safely, sandboxed to the project root
+- **Get File Tree:** Returns the full directory structure as a readable tree, filtered by `.gitignore`
+- **Detect Stack:** Reads `package.json`, `Dockerfile`, `requirements.txt`, `go.mod`, and similar files to identify the tech stack
+- **Search Code:** Searches all non-ignored files for a keyword or regex pattern, returning results with file path and line number
+- **Find TODOs:** Collects every `TODO`, `FIXME`, `HACK`, and `NOTE` comment across the codebase, grouped by file
 
-## What It Does
+## Architecture
 
-| Tool | Description |
-|------|-------------|
-| `find_entry_points` | Scans the workspace and returns all entry point files (`index.ts`, `main.py`, `Dockerfile`, etc.) |
-| `list_dependencies` | Lists all local imports inside a given file |
-| `summarize_folder` | Identifies the role of a folder such as API layer, models, utilities, or tests |
-| `read_file` | Reads the content of any file, sandboxed to the project root |
-| `get_file_tree` | Returns the full directory structure as a readable tree, filtered by `.gitignore` |
-| `detect_stack` | Detects the tech stack by reading `package.json`, `Dockerfile`, `requirements.txt`, `go.mod`, and similar files |
-| `search_code` | Searches all non-ignored files for a keyword or regex pattern, returning matching lines with file and line number |
-| `find_todos` | Finds all `TODO`, `FIXME`, `HACK`, and `NOTE` comments across the codebase, grouped by file |
+**Server:** TypeScript with `@modelcontextprotocol/sdk` over stdio transport
 
-All tools are sandboxed to the workspace root. No file access is permitted outside the project directory.
+**Schema Validation:** Zod for all tool input definitions
 
----
+**Security:** Every tool routes through `safePath()` which resolves inputs to absolute paths and rejects anything outside the workspace root, including sibling directories that share a name prefix
+
+**Filtering:** `.gitignore` patterns are loaded at runtime and applied across all file-walking tools
 
 ## Getting Started
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) v18 or higher
-- npm (included with Node.js)
+- npm (comes with Node.js)
 
-Check your versions:
+Verify your setup:
 
 ```bash
 node -v
 npm -v
 ```
 
-### 1. Clone the repository
+### Installation
 
 ```bash
 git clone https://github.com/bhavjsh/code-atlas.git
 cd code-atlas
-```
-
-### 2. Install dependencies
-
-```bash
 npm install
-```
-
-### 3. Build
-
-```bash
 npm run build
 ```
 
-Compiled output goes into the `dist/` folder.
-
-### 4. Start the server
+### Running the Server
 
 ```bash
 npm start
 ```
 
-The server starts and listens over stdio for MCP requests.
-
----
-
-## Development
-
-Run without a build step using `tsx`:
+For development without a build step:
 
 ```bash
 npm run dev
 ```
 
----
-
 ## Connecting to an MCP Client
 
-Add this to your MCP client's configuration file, replacing the path with the actual location on your machine:
+Add this to your MCP client configuration file, replacing the path with the actual location on your machine:
 
 ```json
 {
@@ -98,42 +75,29 @@ Add this to your MCP client's configuration file, replacing the path with the ac
 }
 ```
 
-Restart your client and all 8 tools will be available.
-
-Works with any MCP-compatible host that supports stdio transport, including Cursor and VS Code MCP extensions.
-
----
+Restart your client. All 8 tools will be available immediately. Compatible with any host that supports the MCP stdio transport including Cursor and VS Code MCP extensions.
 
 ## Project Structure
 
 ```
-src/
-├── index.ts                  (entry point, registers all tools)
-├── tools/
-│   ├── findEntryPoints.ts
-│   ├── listDependencies.ts
-│   ├── summarizeFolder.ts
-│   ├── readFile.ts
-│   ├── getFileTree.ts
-│   ├── detectStack.ts
-│   ├── searchCode.ts
-│   └── findTodos.ts
-└── utils/
-    ├── sandbox.ts            (blocks access outside the workspace root)
-    └── gitignore.ts          (loads and applies .gitignore patterns)
+code-atlas/
+├── src/
+│   ├── index.ts
+│   ├── tools/
+│   │   ├── findEntryPoints.ts
+│   │   ├── listDependencies.ts
+│   │   ├── summarizeFolder.ts
+│   │   ├── readFile.ts
+│   │   ├── getFileTree.ts
+│   │   ├── detectStack.ts
+│   │   ├── searchCode.ts
+│   │   └── findTodos.ts
+│   └── utils/
+│       ├── sandbox.ts
+│       └── gitignore.ts
+├── package.json
+└── tsconfig.json
 ```
-
----
-
-## Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run build` | Compiles TypeScript source to `dist/` |
-| `npm run dev` | Runs the server directly with `tsx`, no build needed |
-| `npm start` | Runs the compiled server from `dist/` |
-
----
 
 ## Tech Stack
 
@@ -142,7 +106,13 @@ src/
 - [@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk)
 - [zod](https://github.com/colinhacks/zod)
 
----
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run build` | Compiles TypeScript to `dist/` |
+| `npm run dev` | Runs the server directly with `tsx` |
+| `npm start` | Runs the compiled server |
 
 ## License
 
