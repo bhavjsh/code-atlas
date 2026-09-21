@@ -1,0 +1,35 @@
+{
+  "name": "code-atlas",
+  "version": "1.0.0",
+  "description": "MCP server for AI-assisted repository analysis",
+  "main": "dist/index.js",
+  "bin": {
+    "code-atlas": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "ai",
+    "codebase",
+    "analysis"
+  ],
+  "author": "bhavjsh",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhavjsh/code-atlas.git"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}
